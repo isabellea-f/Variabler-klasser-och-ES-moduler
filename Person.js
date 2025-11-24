@@ -14,11 +14,17 @@ class Person {
 
   getInfo() {
     const fullName = this.getFullName();
-    return `My name is ${fullName}, I am ${this.age} years old `;
+    return `Persons name is ${fullName}, they are ${
+      this.age
+    } years old. Adult: ${this.isAdult()} `;
   }
 
   toggleActive() {
     this.isActive = !this.isActive;
+  }
+
+  isAdult() {
+    return this.age >= 18;
   }
 }
 

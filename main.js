@@ -27,6 +27,29 @@ const person3 = new Person(
   { role: "healthcare admin", city: "Stockholm" }
 );
 
-console.log(person1.getInfo());
-console.log(person2.getInfo());
-console.log(person3.getInfo());
+const person4 = new Person(
+  "Jane",
+  "Doe",
+  10,
+  false,
+  ["playing", "singing", "drawing"],
+  { role: "student", city: "Eskilstuna" }
+);
+
+const output = document.querySelector("#output");
+const activeAdult = document.querySelector("#active-adult");
+
+const people = [person1, person2, person3, person4];
+output.textContent = people.map((person) => person.getInfo()).join("\n");
+
+let activeAdults = [];
+
+for (const person of people) {
+  if (person.isAdult() && person.isActive) {
+    activeAdults.push(person);
+  }
+}
+
+activeAdult.textContent = activeAdults
+  .map((person) => person.getInfo())
+  .join("\n");
