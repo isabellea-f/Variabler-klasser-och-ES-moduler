@@ -53,3 +53,21 @@ for (const person of people) {
 activeAdult.textContent = activeAdults
   .map((person) => person.getInfo())
   .join("\n");
+
+const roleOutput = document.querySelector("#role-output");
+
+function checkRole(role) {
+  let studentArr = [];
+
+  for (const person of people) {
+    if (person.meta.role === role) {
+      studentArr.push(person);
+    }
+  }
+
+  const studentText = studentArr.map((person) => person.getInfo()).join("\n");
+
+  return studentText;
+}
+
+roleOutput.textContent = checkRole("student");
